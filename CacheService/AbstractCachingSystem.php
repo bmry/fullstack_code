@@ -20,8 +20,6 @@ abstract class AbstractCachingSystem
         return $this->cache->get($key);
     }
 
-
     abstract function set(string $key, string $value, string $isCompressed=null, string $ttl=null):void;
-
 
 }

@@ -2,7 +2,6 @@
 
 namespace Snubes\CodeChallenge;
 
-
 use Snubes\CodeChallenge\CacheService\AbstractCachingSystem;
 use Snubes\CodeChallenge\CacheService\CachingSystemFactory;
 use Snubes\CodeChallenge\CacheService\PushCacheInterface;
@@ -47,8 +46,8 @@ class CacheManager
      * @param string $key
      * @return mixed
      */
-    public function get(string $key){
-
+    public function get(string $key)
+    {
         return $this->cache->get($key);
     }
 
@@ -57,8 +56,8 @@ class CacheManager
      * @param string $value
      * @throws \Exception
      */
-    public function lpush(string $key, string $value){
-
+    public function lpush(string $key, string $value)
+    {
         if (!$this->cache instanceof PushCacheInterface){
             throw new \Exception("method not supported");
         }
@@ -81,5 +80,3 @@ $cm->connect('somehost','121');
 $cm->set('one','1');
 $cm->lpush('two','2'); // generates exception
 echo $cm->get('one');
-
-

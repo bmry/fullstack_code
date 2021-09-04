@@ -2,7 +2,6 @@
 
 namespace Snubes\CodeChallenge\CacheService;
 
-
 interface PushCacheInterface
 {
     /**
