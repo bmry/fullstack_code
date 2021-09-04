@@ -9,6 +9,7 @@
 namespace Snubes\CodeChallenge;
 
 use Snubes\CodeChallenge\CacheService\AbstractCachingSystem;
+use Snubes\CodeChallenge\CacheService\CachingSystem\Exception\UnsupportedCacheMethodException;
 use Snubes\CodeChallenge\CacheService\CachingSystemFactory;
 use Snubes\CodeChallenge\CacheService\PushCacheInterface;
 
@@ -65,7 +66,7 @@ class CacheManager
     public function lpush(string $key, string $value)
     {
         if (!$this->cache instanceof PushCacheInterface){
-            throw new \Exception("method not supported");
+            throw new UnsupportedCacheMethodException();
         }
 
         $this->cache->lPush($key,$value);
