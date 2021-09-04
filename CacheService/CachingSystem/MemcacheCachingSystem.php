@@ -14,6 +14,12 @@ class MemcacheCachingSystem extends AbstractCachingSystem
         $this->cache = new Memcache();
     }
 
+    /**
+     * @param string $key
+     * @param string $value
+     * @param string|null $isCompressed
+     * @param string|null $ttl
+     */
     public function set(string $key, string $value, string $isCompressed = null, string $ttl = null): void
     {
        $this->cache->set($key, $value, $isCompressed, $ttl);
